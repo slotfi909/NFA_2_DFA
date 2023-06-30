@@ -29,14 +29,45 @@ so for example, if we have an NFA with 3 states, its state set will be {0,1,2} a
 ### input
 in the first line of input, we get the number of NFA's states.
 
-in second line, we get the accept state(s) (in aceending order).
+in second line, we get the accept state(s) (in ascending order).
 
 in each of the next lines, one section of transition fucntion is written in the form below:
-    '''
+```
     <from state>:<symbol>:<to state1>,<to state2>,...
     <from state>:<symbol>:<to state1>,<to state2>,...
     ...
-    '''
+```
 
 
-in 
+at the end of input, for better understanding of the algorithm, type "end".
+
+### output
+in the first line of output, we get the number of states in the corresponding DFA, in the second line, the start state and in third one, Accept state(s) in an ascending order.
+
+in the lines after that, transfer function with a lexicographic sort gets printed:
+```
+<from state>:<symbol>:<to state>
+<from state>:<symbol>:<to state>
+...
+```
+
+### example
+#### input
+this NFA's language is a<sup>__*__</sup>.
+```
+1
+0
+0:a:0
+end
+```
+
+#### output
+```
+2
+1
+1
+0:a:0
+0:b:0
+1:a:1
+1:b:0
+```
