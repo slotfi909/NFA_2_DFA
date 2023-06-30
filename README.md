@@ -2,13 +2,19 @@
 ## A simple python script that turns NFA to DFA
 
 we know that every DFA/NFA, can be described using these 5 properties:
+
   1-The alphabet
+  
   2-State set
+  
   3-Initial state
+  
   4-Accept state(s)
+  
   5-Transition function
   
-in this algorithm, we assume that our alphabet consist of {a,b}.
+  
+in this algorithm, we assume that our alphabet is {a,b}.
 
 we also label our states starting from 0(in NFA, we consider start state the zero state), and we show epsilon transitions using " ' ". 
 
