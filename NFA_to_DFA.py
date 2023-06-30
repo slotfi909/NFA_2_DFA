@@ -23,7 +23,7 @@ def findSubset(set,subset):
     return 0
 
 def powerset(array):
-    # Empty set is part of power set
+    # Empty set is a part of powerset
     subsets = [[]]
     for element in array:
         # Add every element to existing subsets
@@ -48,30 +48,31 @@ DFA_NumOfStates=2**int(NFA_NumOfStates)
 tempStr=''
 for i in range(int(NFA_NumOfStates)):
     tempStr+=str(i)
-    i+=1
+    i+=1                                        
 DFA_States=powerset(tempStr)
 DFA_States.sort()
-DFA_States.sort(key=len)
+DFA_States.sort(key=len) #to get a lexicographic sort of states
 
 NFA_EpsilonTransitions=[]
-for i in NFA_TranferFunction:
+for i in NFA_TranferFunction: #to find epsilonTransitions
     if i[2]=="'":
         NFA_EpsilonTransitions.append(i)
 
 DFA_StartStates=['0']
 for i in NFA_EpsilonTransitions:
-    if i[0]=='0':
+    if i[0]=='0': #if start state is 0
         tempStr=i
-        DFA_StartStates+=tempStr[4:]
+        DFA_StartStates+=tempStr[4:] #add all dest states in transformation to DFA_StartStates
         DFA_StartStates=[i for i in DFA_StartStates if i!=',']
 
 
 DFA_StartState=0
-for i in range(len(DFA_States)):
+for i in range(len(DFA_States)): #to find the real start state in DFA
     if DFA_States[i]==DFA_StartStates:
         DFA_StartState=i
+        break
 
-DFA_AcceptStates=[]
+DFA_AcceptStates=[]                                
 for i in range(len(NFA_AcceptStates)):
     for j in range(len(DFA_States)):
         if NFA_AcceptStates[i] in DFA_States[j] and NFA_AcceptStates[i]!=",":
@@ -104,7 +105,8 @@ for i in DFA_States:
 
     tmpListA = listDeduplicate(tmpListA)
     tmpListB = listDeduplicate(tmpListB)
-
+    
+    #a
     tmpStr=str(findSubset(DFA_States,i))+":a:"+str(findSubset(DFA_States,tmpListA))
     DFA_TransitionFunction.append(tmpStr)
     #b
