@@ -1,4 +1,4 @@
-# NFA_to_DFA
+# NFA_2_DFA (NFA_to_DFA)
 ## A simple python script that turns NFA to DFA
 
 we know that every DFA/NFA, can be described using these 5 properties:
